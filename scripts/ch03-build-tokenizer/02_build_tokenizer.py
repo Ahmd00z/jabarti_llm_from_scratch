@@ -18,7 +18,7 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 CURRENT_WD = Path(__file__).parent
 CLEAN_PATHS = [
-    CURRENT_WD / "output" / "tokenizer_corpus.parquet",
+    CURRENT_WD / "output" / "phase1_train_clean.parquet",
 ]
 
 OUTPUT_PATH = CURRENT_WD / "tokenizer.json"

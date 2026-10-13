@@ -90,6 +90,21 @@ def download_and_filter():
         df.to_parquet(output_path, index=False)
         print(f"Saved: {output_path}")
 
+def demo_normalizer():
+    print("TYPE B NORMALIZER (embeddable, runs at inference too)")
+
+    samples = [
+        "جُمْهُورِيَّةُ مِصْرَ الْعَرَبِيَّة",      # heavy diacritics
+        "أحمد إبراهيم آدم علىّ",                   # alef + ya variants
+        "The   United    States",                 # extra spaces
+    ]
+
+    for s in samples:
+        print(f"  raw       : {s}")
+        print(f"  normalized: {normalize_text(s)}")
+        print("="*30) 
+
+
 def clean_phase(phase, input_path, output_path):
 
     print(f"==== clean_phase: {phase} ====")
@@ -121,5 +136,6 @@ def main():
         clean_phase(phase=name, input_path=input_path, output_path=output_path)
 
 if __name__ == "__main__":
-    main()
+    #main()
+    demo_normalizer()
     
